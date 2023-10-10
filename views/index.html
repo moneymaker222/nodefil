@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>roho7nailz.com</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href='https://fonts.googleapis.com/css?family=UnifrakturMaguntia' rel='stylesheet'>
+    <style>
+    .hidden{
+
+    }
+.jumbotron {
+  background-repeat: no-repeat;
+background-size: cover;
+background-image: url('https://scontent.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/37180211_277977819629094_5675545732564647936_n.jpg?_nc_ht=scontent.cdninstagram.com&_nc_ohc=Nqt2M2VL-u0AX_-4oUq&oh=43c9e6dcd04476ba58594d2623fffcea&oe=5E90B652');
+}
+    .paragraph {
+        font-family: 'UnifrakturMaguntia';
+        font-size: 50px;
+    line-height: 62px;
+    color:pink;
+    }
+    .pink {
+      color:pink;
+    }
+
+    </style>
+</head>
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+                  
+                  
+                  
+                  
+                  
+            	
+        <nav class="navbar navbar-expand navbar-dark bg-dark">
+                <div class="navbar navbar-expand navbar-dark bg-dark">
+   
+  <a  class="nav-link paragraph" href="https://burmoney.github.io/Placosostudiomx"><h1 class="paragraph" herf="https://burmoney.github.io/Placosostudiomx">Placosostudio</h1></a>
+
+    </div></nav>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      
+                  
+           
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-6 offset-sm-3">
+                    <h1 class="paragraph">t(-_-,t)</h1>
+                  
+                    <form name="submit-to-google-sheet" id="submit-to-google-sheet" >
+
+
+
+
+                      
+                  <input type="hidden" id="TimestampInput" /> <br>
+
+
+                   Date:  <input name="Dateinput" type="date" id="DateInput" placeholder="date" class="form-control" onblur="validate()"/> <br />
+
+                   Time:
+
+                   <select name="Time" id="TimeInput" placeholder="time" class="form-control">
+   <option value="10:00 AM">10:00 AM</option>
+   <option value="11:00 AM">11:00 AM</option>
+   <option value="12:00 AM">12:00 PM</option>
+   <option value="1:00 PM">1:00 PM</option>
+  <option value="2:00 PM">2:00 PM</option>
+   <option value="3:00 PM">3:00 PM</option>
+   <option value="4:00 PM">4:00 PM</option>
+   <option value="5:00 PM">5:00 PM</option>
+ </select>
+                     <br />
+
+              <input name="EmailAddress" type="email" id="email" placeholder="email" class="form-control"  onblur="validate()" /> <br />
+
+  <input name="Name"  type="text" id="name" placeholder="Name" class="form-control"  onblur="validate()" /> <br />
+
+
+                <input name="Reason" id="ReasonInput" placeholder="phone number" class="form-control" onblur="validate()"/><br />
+
+
+                  <div class="form-group">
+                    <input id="myButton" type="submit" value="Book Now" onclick="myFunction()" disabled="disabled" />
+
+                  </div>
+
+
+            </form>
+
+
+
+
+
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+
+
+
+	function validate() {
+
+		var valid = true;
+		valid = checkEmpty($("#name"));
+	   valid = one($("#ReasonInput"));
+      valid = two($("#DateInput"));
+     DateInput
+		valid = valid && checkEmail($("#email"));
+
+		$("#myButton").attr("disabled",true);
+		if(valid) {
+			$("#myButton").attr("disabled",false);
+		}
+	}
+
+
+	function checkEmpty(obj) {
+		var name = $(obj).attr("name");
+		$("."+name+"-validation").html("");
+		$(obj).css("border","");
+		if($(obj).val() == "") {
+			$(obj).css("border","#FF0000 1px solid");
+			$("."+name+"-validation").html("Required");
+			return false;
+		}
+
+		return true;
+	}
+
+  function one(obj) {
+		var name = $(obj).attr("name");
+		$("."+name+"-validation").html("");
+		$(obj).css("border","");
+		if($(obj).val() == "") {
+			$(obj).css("border","#FF0000 1px solid");
+			$("."+name+"-validation").html("Required");
+			return false;
+		}
+
+		return true;
+	}
+  function two(obj) {
+    var name = $(obj).attr("name");
+    $("."+name+"-validation").html("");
+    $(obj).css("border","");
+    if($(obj).val() == "") {
+      $(obj).css("border","#FF0000 1px solid");
+      $("."+name+"-validation").html("Required");
+      return false;
+    }
+
+    return true;
+  }
+
+
+
+
+	function checkEmail(obj) {
+		var result = true;
+
+		var name = $(obj).attr("name");
+		$("."+name+"-validation").html("");
+		$(obj).css("border","");
+
+		result = checkEmpty(obj);
+
+		if(!result) {
+			$(obj).css("border","#FF0000 1px solid");
+			$("."+name+"-validation").html("Required");
+			return false;
+		}
+
+		var email_regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,3})+$/;
+		result = email_regex.test($(obj).val());
+
+		if(!result) {
+			$(obj).css("border","#FF0000 1px solid");
+			$("."+name+"-validation").html("Invalid");
+			return false;
+		}
+
+		return result;
+	}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+$(document).ready( function() {
+    var now = new Date();
+
+    var day = ("0" + now.getDate()).slice(-2);
+    var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+    var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+
+
+   $('#TimestampInput').val(today);
+});
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxQezWaxFbzXMQlDi_qsUWEsylsOnQDTu25juS4bfhsmj1YDdWdQhNiwr1F820jp70oFQ/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+         window.open('https://burmoney.github.io/Placosostudiomx');
+  })
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+ <script>
+        $('form').on('submit', (e) => {
+          e.preventDefault();
+          const timestamp = $('#TimestampInput').val().trim();
+          const time = $('#TimeInput').val().trim();
+          const date = $('#DateInput').val().trim();
+          const email = $('#email').val().trim();
+          const subject = $('#name').val().trim();
+          const text = $('#ReasonInput').val().trim();
+
+          const data = {
+            timestamp,
+            time,
+            date,
+            email,
+            subject,
+            text
+          };
+
+          $.post("/email", data, function() {
+              console.log('Server received our data');
+
+
+           });
+
+
+          });;
+
+
+
+
+      </script>
+
+
+
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>
